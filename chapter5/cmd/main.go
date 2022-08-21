@@ -4,6 +4,10 @@ import (
 	"context"
 	"log"
 
+	"github.com/Rhymond/go-money"
+	"github.com/google/uuid"
+
+	coffeeco "coffeeco/internal"
 	"coffeeco/internal/payment"
 	"coffeeco/internal/purchase"
 	"coffeeco/internal/store"
@@ -13,9 +17,15 @@ func main() {
 
 	ctx := context.Background()
 
-	someApiKey := "12345"
-	mongoConString := "12345"
-	csvc, err := payment.NewStripeService(someApiKey)
+	// This is the test key from Stripe's documentation. Feel free to use it, no charges will actually be made.
+	stripeTestAPIKey := "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
+
+	// This is a test token from Stripe's documentation. Feel free to use it, no charges will actually be made.
+	cardToken := "tok_visa"
+
+	// This is the credentials for mongo if you run docker-compose up in this repo.
+	mongoConString := "mongodb://root:example@localhost:27017"
+	csvc, err := payment.NewStripeService(stripeTestAPIKey)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -38,6 +48,25 @@ func main() {
 
 	sSvc := store.NewService(sRepo)
 
-	_ = purchase.NewService(csvc, prepo, sSvc)
+	svc := purchase.NewService(csvc, prepo, sSvc)
+
+	someStoreID := uuid.New()
+
+	pur := &purchase.Purchase{
+		CardToken: &cardToken,
+		Store: store.Store{
+			ID: someStoreID,
+		},
+		ProductsToPurchase: []coffeeco.Product{{
+			ItemName:  "item1",
+			BasePrice: *money.New(3300, "USD"),
+		}},
+		PaymentMeans: payment.MEANS_CARD,
+	}
+	if err := svc.CompletePurchase(ctx, someStoreID, pur, nil); err != nil {
+		log.Fatal(err)
+	}
+
+	log.Println("purchase was successful")
 
 }

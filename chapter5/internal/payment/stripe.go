@@ -7,7 +7,6 @@ import (
 
 	"github.com/Rhymond/go-money"
 	"github.com/stripe/stripe-go/v73"
-	"github.com/stripe/stripe-go/v73/charge"
 	"github.com/stripe/stripe-go/v73/client"
 )
 
@@ -30,7 +29,7 @@ func (s StripeService) ChargeCard(ctx context.Context, amount money.Money, cardT
 		Currency: stripe.String(string(stripe.CurrencyUSD)),
 		Source:   &stripe.PaymentSourceSourceParams{Token: stripe.String(cardToken)},
 	}
-	_, err := charge.New(params)
+	_, err := s.stripeClient.Charges.New(params)
 	if err != nil {
 		return fmt.Errorf("failed to create a charge:%w", err)
 	}

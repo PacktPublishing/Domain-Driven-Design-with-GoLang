@@ -22,13 +22,14 @@ type Purchase struct {
 	total              money.Money
 	PaymentMeans       payment.Means
 	timeOfPurchase     time.Time
-	cardToken          *string
+	CardToken          *string
 }
 
-func (p Purchase) Factory() error {
+func (p *Purchase) Factory() error {
 	if len(p.ProductsToPurchase) == 0 {
 		return errors.New("purchase must consist of at least one product")
 	}
+	p.total = *money.New(0, "USD")
 
 	for _, v := range p.ProductsToPurchase {
 		newTotal, _ := p.total.Add(&v.BasePrice)
@@ -72,7 +73,7 @@ func (s Service) CompletePurchase(ctx context.Context, storeID uuid.UUID, purcha
 	}
 	switch purchase.PaymentMeans {
 	case payment.MEANS_CARD:
-		if err := s.cardService.ChargeCard(ctx, purchase.total, *purchase.cardToken); err != nil {
+		if err := s.cardService.ChargeCard(ctx, purchase.total, *purchase.CardToken); err != nil {
 			return errors.New("card charge failed, cancelling purchase")
 		}
 	case payment.MEANS_CASH:
@@ -87,7 +88,7 @@ func (s Service) CompletePurchase(ctx context.Context, storeID uuid.UUID, purcha
 	}
 
 	if err := s.purchaseRepo.Store(ctx, *purchase); err != nil {
-		return errors.New("failed to store purchase")
+		return errors.New("failed to Store purchase")
 	}
 	if coffeeBuxCard != nil {
 		coffeeBuxCard.AddStamp()
