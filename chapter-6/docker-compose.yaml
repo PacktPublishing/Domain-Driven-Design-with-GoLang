@@ -1,0 +1,8 @@
+services:
+  partnerships-api:
+    ports:
+      - "3031:3031"
+    build:
+      dockerfile: dockerfile
+      context: .
+
