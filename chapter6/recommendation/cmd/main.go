@@ -6,8 +6,8 @@ import (
 
 	"github.com/hashicorp/go-retryablehttp"
 
-	"ddd-golang/ch6/recommendation/internal/recommendation"
-	"ddd-golang/ch6/recommendation/internal/transport"
+	"github.com/PacktPublishing/Domain-Driven-Design-with-GoLang/chapter6/recommendation/internal/recommendation"
+	"github.com/PacktPublishing/Domain-Driven-Design-with-GoLang/chapter6/recommendation/internal/transport"
 )
 
 func main() {

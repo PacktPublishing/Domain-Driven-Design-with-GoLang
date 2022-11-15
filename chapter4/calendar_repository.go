@@ -21,7 +21,7 @@ func NewPostgresRepository(ctx context.Context, dbConnString string) (*PostgresR
 	if err != nil {
 		return nil, fmt.Errorf("failed to connect to db: %w", err)
 	}
-	defer conn.Close(context.Background())
+	defer conn.Close(ctx)
 
 	return &PostgresRepository{connPool: conn}, nil
 }

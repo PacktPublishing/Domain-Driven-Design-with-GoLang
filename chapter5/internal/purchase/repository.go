@@ -38,7 +38,7 @@ func NewMongoRepo(ctx context.Context, connectionString string) (*MongoRepositor
 }
 
 func (mr *MongoRepository) Store(ctx context.Context, purchase Purchase) error {
-	mongoP := New(purchase)
+	mongoP := toMongoPurchase(purchase)
 	_, err := mr.purchases.InsertOne(ctx, mongoP)
 	if err != nil {
 		return fmt.Errorf("failed to persist purchase: %w", err)
@@ -56,7 +56,7 @@ type mongoPurchase struct {
 	CardToken          *string            `bson:"card_token"`
 }
 
-func New(p Purchase) mongoPurchase {
+func toMongoPurchase(p Purchase) mongoPurchase {
 	return mongoPurchase{
 		ID:                 p.id,
 		Store:              p.Store,

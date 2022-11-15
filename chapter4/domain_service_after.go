@@ -18,7 +18,7 @@ func (c CheckoutService) AddProductToBasket(p *Product) error {
 		c.shoppingCart.Products = append(c.shoppingCart.Products, *p)
 		return nil
 	}
-	if c.shoppingCart.maxCartSize == len(c.shoppingCart.Products) {
+	if c.shoppingCart.MaxCartSize == len(c.shoppingCart.Products) {
 		c.shoppingCart.IsFull = true
 	}
 	return nil

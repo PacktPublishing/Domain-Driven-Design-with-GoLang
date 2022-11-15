@@ -5,7 +5,7 @@ import (
 )
 
 type UserType = int
-type subscriptionType = int
+type SubscriptionType = int
 
 const (
 	unknownUserType UserType = iota
@@ -16,30 +16,30 @@ const (
 )
 
 const (
-	unknownSubscriptionType subscriptionType = iota
+	unknownSubscriptionType SubscriptionType = iota
 	basic
 	premium
 	exclusive
 )
 
 type UserAddRequest struct {
-	userType       UserType
-	email          string
-	subType        subscriptionType
-	paymentDetails PaymentDetails
+	UserType       UserType
+	Email          string
+	SubType        SubscriptionType
+	PaymentDetails PaymentDetails
 }
 
 type UserModifyRequest struct {
-	id             string
-	userType       UserType
-	email          string
-	subType        subscriptionType
-	paymentDetails PaymentDetails
+	ID             string
+	UserType       UserType
+	Email          string
+	SubType        SubscriptionType
+	PaymentDetails PaymentDetails
 }
 
 type User struct {
-	id             string
-	paymentDetails PaymentDetails
+	ID             string
+	PaymentDetails PaymentDetails
 }
 
 type PaymentDetails struct {

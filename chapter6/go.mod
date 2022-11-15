@@ -1,6 +1,6 @@
-module ddd-golang/ch6
+module "github.com/PacktPublishing/Domain-Driven-Design-with-GoLang/chapter6"
 
-go 1.18
+go 1.19
 
 require (
 	github.com/Rhymond/go-money v1.0.9

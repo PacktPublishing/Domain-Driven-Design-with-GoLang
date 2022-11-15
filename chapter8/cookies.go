@@ -1,6 +1,9 @@
 package chapter8
 
-import "context"
+import (
+	"context"
+	"errors"
+)
 
 type (
 	EmailSender interface {
@@ -28,23 +31,29 @@ func NewCookieService(e EmailSender, c CardCharger, a CookieStockChecker) (*Cook
 	}, nil
 }
 
-func (c *CookieService) PurchaseCookies(ctx context.Context, amountOfCookiesToPurchase int) error {
-	//TODO: ask how much cookies cost. This is a placeholder.
-	priceOfCookie := 5
+func (c *CookieService) PurchaseCookies(
+	ctx context.Context,
+	amountOfCookiesToPurchase int,
+	cardToken string,
+	email string,
+) error {
+	priceOfCookie := 50
 
 	cookiesInStock := c.stockChecker.AmountInStock(ctx)
+	if cookiesInStock == 0 {
+		return errors.New("no cookies in stock sorry :(")
+	}
 	if amountOfCookiesToPurchase > cookiesInStock {
-		//TODO: what do I do in this situation?
+		amountOfCookiesToPurchase = cookiesInStock
 	}
 	cost := priceOfCookie * amountOfCookiesToPurchase
 
-	//TODO: where do I get cardtoken from?
-	if err := c.cardCharger.ChargeCard(ctx, "some-token", cost); err != nil {
-		//TODO: handle this later.
+	if err := c.cardCharger.ChargeCard(ctx, cardToken, cost); err != nil {
+		return errors.New("your card was declined, you are banned!")
 	}
 
-	if err := c.emailSender.SendEmailReceipt(ctx, "some-email"); err != nil {
-		//TODO: handle error later
+	if err := c.emailSender.SendEmailReceipt(ctx, email); err != nil {
+		return errors.New("we are sorry but the email receipt did not send")
 	}
 	return nil
 }

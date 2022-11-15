@@ -5,10 +5,12 @@ import (
 	"errors"
 	"fmt"
 
-	"ddd-golang/chapter2"
+	"github.com/PacktPublishing/Domain-Driven-Design-with-GoLang/chapter2"
 )
 
-const accountCtxKey = int(1)
+type accountKey = int
+
+const accountCtxKey = accountKey(1)
 
 type BookingDomainService interface {
 	CreateBooking(ctx context.Context, booking Booking) error

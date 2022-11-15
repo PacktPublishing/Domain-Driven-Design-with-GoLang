@@ -28,19 +28,10 @@ func (c *Customer) SetUserID(userID string) {
 }
 
 type LeadConvertor interface {
-	Convert(ctx context.Context) (Customer, error)
+	Convert(ctx context.Context, subSelection SubscriptionType) (Customer, error)
 }
 
-type SubscriptionCreator interface {
-	CreateSubscription(ctx context.Context, subSelection subscriptionType) error
-}
-
-func (l Lead) CreateSubscription(ctx context.Context, subSelection subscriptionType) error {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Lead) Convert(ctx context.Context) (Customer, error) {
+func (l Lead) Convert(ctx context.Context, subSelection SubscriptionType) (Customer, error) {
 	//TODO implement me
 	panic("implement me")
 }

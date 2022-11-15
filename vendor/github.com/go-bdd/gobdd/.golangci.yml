@@ -1,0 +1,18 @@
+xlinters-settings:
+  golint:
+    min-confidence: 0.1
+
+linters:
+  enable-all: true
+  disable:
+    - funlen
+    - goerr113
+    - gofumpt
+    - gomnd
+    - godot
+    - testpackage
+    - nolintlint
+    - golint
+    - scopelint
+    - gosec
+

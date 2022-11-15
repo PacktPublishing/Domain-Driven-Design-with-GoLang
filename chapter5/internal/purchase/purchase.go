@@ -25,7 +25,7 @@ type Purchase struct {
 	CardToken          *string
 }
 
-func (p *Purchase) Factory() error {
+func (p *Purchase) validateAndEnrich() error {
 	if len(p.ProductsToPurchase) == 0 {
 		return errors.New("purchase must consist of at least one product")
 	}
@@ -64,7 +64,7 @@ func NewService(cardService CardChargeService, purchaseRepo Repository, storeSer
 }
 
 func (s Service) CompletePurchase(ctx context.Context, storeID uuid.UUID, purchase *Purchase, coffeeBuxCard *loyalty.CoffeeBux) error {
-	if err := purchase.Factory(); err != nil {
+	if err := purchase.validateAndEnrich(); err != nil {
 		return err
 	}
 

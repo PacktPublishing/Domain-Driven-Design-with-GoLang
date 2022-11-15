@@ -14,7 +14,7 @@ type ShoppingCart struct {
 	ID          int
 	Products    []Product
 	IsFull      bool
-	maxCartSize int
+	MaxCartSize int
 }
 
 func (s *ShoppingCart) AddToCart(p Product) bool {
@@ -25,7 +25,7 @@ func (s *ShoppingCart) AddToCart(p Product) bool {
 		s.Products = append(s.Products, p)
 		return true
 	}
-	if s.maxCartSize == len(s.Products) {
+	if s.MaxCartSize == len(s.Products) {
 		s.IsFull = true
 	}
 	return true

@@ -1,8 +1,26 @@
 # github.com/Rhymond/go-money v1.0.7
 ## explicit; go 1.13
 github.com/Rhymond/go-money
+# github.com/cucumber/gherkin-go/v13 v13.0.0
+## explicit; go 1.13
+github.com/cucumber/gherkin-go/v13
+# github.com/cucumber/messages-go/v12 v12.0.0
+## explicit; go 1.13
+github.com/cucumber/messages-go/v12
+# github.com/go-bdd/gobdd v1.1.3
+## explicit; go 1.12
+github.com/go-bdd/gobdd
+# github.com/gofrs/uuid v4.0.0+incompatible
+## explicit
+github.com/gofrs/uuid
+# github.com/gogo/protobuf v1.3.1
+## explicit
+github.com/gogo/protobuf/io
+github.com/gogo/protobuf/proto
 # github.com/golang/mock v1.6.0
 ## explicit; go 1.11
+github.com/golang/mock/gomock
+github.com/golang/mock/mockgen/model
 # github.com/google/uuid v1.3.0
 ## explicit
 github.com/google/uuid

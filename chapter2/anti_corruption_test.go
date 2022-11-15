@@ -3,7 +3,7 @@ package chapter2_test
 import (
 	"testing"
 
-	"ddd-golang/chapter2"
+	"github.com/PacktPublishing/Domain-Driven-Design-with-GoLang/chapter2"
 )
 
 func Test_ToCampaign(t *testing.T) {

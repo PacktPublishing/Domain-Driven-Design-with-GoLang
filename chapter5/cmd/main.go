@@ -68,5 +68,4 @@ func main() {
 	}
 
 	log.Println("purchase was successful")
-
 }

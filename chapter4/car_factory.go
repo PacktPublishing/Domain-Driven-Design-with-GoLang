@@ -1,6 +1,9 @@
 package chapter4
 
-import "errors"
+import (
+	"errors"
+	"log"
+)
 
 type Car interface {
 	BeepBeep()
@@ -37,5 +40,10 @@ func BuildCar(carType string) (Car, error) {
 }
 
 func main() {
-	myCar, _ := BuildCar("tesla")
+	myCar, err := BuildCar("tesla")
+	if err != nil {
+		log.Fatal(err)
+	}
+	// do something with myCar
+	_ = myCar
 }

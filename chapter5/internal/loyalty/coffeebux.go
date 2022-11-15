@@ -34,7 +34,7 @@ func (c *CoffeeBux) Pay(ctx context.Context, purchases []coffeeco.Product) error
 		return errors.New("nothing to buy")
 	}
 
-	if lp < c.FreeDrinksAvailable {
+	if c.FreeDrinksAvailable < lp {
 		return fmt.Errorf("not enough coffeeBux to cover entire purchase. Have %d, need %d", len(purchases), c.FreeDrinksAvailable)
 	}
 

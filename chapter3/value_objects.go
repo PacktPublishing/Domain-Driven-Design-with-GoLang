@@ -14,10 +14,10 @@ func NewPoint(x, y int) Point {
 
 const (
 	DirectionUnknown = iota
-	DirectionNorth   = iota
-	DirectionSouth   = iota
-	DirectionEast    = iota
-	DirectionWest    = iota
+	DirectionNorth
+	DirectionSouth
+	DirectionEast
+	DirectionWest
 )
 
 func TrackPlayer() {

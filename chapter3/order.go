@@ -5,6 +5,10 @@ import (
 	"github.com/google/uuid"
 )
 
+type item struct {
+	name string
+}
+
 type Order struct {
 	items          []item
 	taxAmount      money.Money

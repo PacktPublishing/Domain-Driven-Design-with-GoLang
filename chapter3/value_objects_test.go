@@ -3,7 +3,7 @@ package chapter3_test
 import (
 	"testing"
 
-	"ddd-golang/chapter3"
+	"github.com/PacktPublishing/Domain-Driven-Design-with-GoLang/chapter3"
 )
 
 func Test_Point(t *testing.T) {

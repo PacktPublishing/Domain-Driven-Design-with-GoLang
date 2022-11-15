@@ -13,7 +13,7 @@ type Campaign struct {
 }
 
 type MarketingCampaignModel struct {
-	Id       string `json:"id"`
+	Id       string `json:"ID"`
 	Metadata struct {
 		Name     string `json:"name"`
 		Category string `json:"category"`
