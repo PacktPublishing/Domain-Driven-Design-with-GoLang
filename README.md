@@ -22,9 +22,25 @@ If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1804
 
 <a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" 
 alt="https://www.packtpub.com/" border="5" /></a>
+## Instructions and Navigations
+All of the code is organized into folders. For example, Chapter02.
+
+The code will look like the following:
+```
+=== RUN Test_Point
+value_objects_test.go:13: a and b were not equal
+--- FAIL: Test_Point (0.00s)
+```
 
 **Following is what you need for this book:**
 This book is for intermediate-level Go developers who are looking to ensure that they not only write maintainable code, but also deliver great business value. If you have a basic understanding of Go and are interested in learning about Domain-driven design, or you’ve explored Domain-driven design before but never in the context of Go, then this book will be helpful.
+
+With the following software and hardware list you can run all code files present in the book (Chapter 1-8).
+### Software and Hardware List
+| Chapter | Software required | OS required |
+| -------- | ------------------------------------ | ----------------------------------- |
+| 1-8 | Go 1.19.3 or above | Windows, macOS, or Linux |
+| 1-8 | VS Code or Goland | Windows, macOS, or Linux |
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://packt.link/lXo4T).
 
