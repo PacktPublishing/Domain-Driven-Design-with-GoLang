@@ -53,3 +53,8 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 ## Get to Know the Author
 **Matt Boyle**
 is an experienced technical leader in the field of distributed systems, specializing in using Go. He has worked at huge companies such as Cloudflare & General Electric, as well as exciting high-growth startups such as Curve & Crowdcube. Matt has been writing Go for production since 2018 and often shares blog posts and fun trivia about Go over on Twitter (@MattJamesBoyle).
+
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781804613450">https://packt.link/free-ebook/9781804613450 </a> </p>
