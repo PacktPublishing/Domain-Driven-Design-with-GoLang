@@ -3,6 +3,11 @@ services:
     ports:
       - "3031:3031"
     build:
-      dockerfile: dockerfile
+      dockerfile: partnerships-dockerfile
       context: .
-
+  recommendation-api:
+    ports:
+      - "4040:4040"
+    build:
+      dockerfile: recommendation-dockerfile
+      context: .

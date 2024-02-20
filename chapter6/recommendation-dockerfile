@@ -1,0 +1,14 @@
+# builder image
+FROM golang:1.18 as builder
+RUN mkdir /build
+COPY . /build/
+WORKDIR /build
+RUN CGO_ENABLED=0 GOOS=linux go build -a -o recommendation-api recommendation/cmd/main.go
+
+
+# generate clean, final image for end users
+FROM alpine
+COPY --from=builder /build/recommendation-api .
+
+# executable
+ENTRYPOINT [ "./recommendation-api" ]

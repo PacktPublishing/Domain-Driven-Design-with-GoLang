@@ -16,7 +16,7 @@ func main() {
 
 	partnerAdaptor, err := recommendation.NewPartnerShipAdaptor(
 		c.StandardClient(),
-		"http://localhost:3031",
+		"http://partnerships-api:3031",
 	)
 	if err != nil {
 		log.Fatal("failed to create a partnerAdaptor: ", err)
