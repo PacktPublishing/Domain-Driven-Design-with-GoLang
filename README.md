@@ -44,6 +44,18 @@ With the following software and hardware list you can run all code files present
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://packt.link/lXo4T).
 
+## Errata:
+
+* Page 90 (paragraph 2):
+
+  To program as defensively as possible, we are going to define a validateAndEnrich function in **product.go**. This will help us keep our service as thin as possible. Remember, we should always be trying to push down as much logic as possible into our domain objects:
+  1. Let’s add the following code to **product.go**:
+
+  _should be_
+
+  To program as defensively as possible, we are going to define a validateAndEnrich function in **purchase.go**. This will help us keep our service as thin as possible. Remember, we should always be trying to push down as much logic as possible into our domain objects:
+  1. Let’s add the following code to **purchase.go**:
+
 ### Related products
 *  Event-Driven Architecture in Golang
  [[Packt]](https://www.packtpub.com/product/event-driven-architecture-in-golang/9781803238012?utm_source=github&utm_medium=repository&utm_campaign=9781803238012) [[Amazon]](https://www.amazon.com/dp/1803238011)
